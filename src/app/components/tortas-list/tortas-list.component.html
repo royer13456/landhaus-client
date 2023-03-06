@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-12">
+        <input (input)="searchTorta()" [(ngModel)]="textSearch" class="form-control" type="text" name="" id="" >
+    </div>
+</div>
+
+<div class="col-md-4 col mb-5 d-grid" *ngFor="let torta of tortas_show">
+    <div class="card text-center">
+        <div class="card-header text-blak d-flex justify-content-evenly">
+            <img [src]="torta.img" class="card img-top imagen   ">
+        </div>
+        <div class="card-body">
+            <div>
+                <p>{{torta.nombre}}</p>
+                <p>{{torta.descripcion}}</p>
+                <p>S/. {{torta.precio}}</p>
+            </div>
+            <div class="d-flex justify-content-evenly aling-items-center h-2">
+                <a [routerLink]="['/tortas/edit', torta.id_tortas]" class="btn btn-info btn-block">
+                    EDITAR
+                </a>
+                <button class="btn btn-danger" (click)="deleteTorta(torta.id_tortas)">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
